@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}
+  Login
+{% endblock %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+    <h2>You are already logged in!</h2>
+    <div class="border-top pt-3">
+    <ol class="breadcrumb my-4">
+        <li class="breadcrumb-item active"><a href="{% url 'profile' %}">Visit your profile page</a></li>      
+    </ol>
+    </div>
+    {% else %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <center><legend class="border-bottom mb-4">Login</legend></center>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign In</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Don't Have An Account?<a class="ml-2" href="{% url 'register' %}">Sign Up</a>
+            </small>
+        </div>
+    </div>
+    {% endif %}
+{% endblock content %}
