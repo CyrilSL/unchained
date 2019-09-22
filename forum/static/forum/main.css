@@ -12,11 +12,35 @@ label{
   font-size: 2rem;
 }
 
-input[type="file"] {
+input[type="file"] {                /*File select to upload*/
   display: none;
 }
 
-.id_data{
+.fal{                                /* Add any text to turn white */
+  color:white;
+}
+
+.breadcrumb{
+  background-color: #ea2088;
+  color:white;
+}
+
+.the-blur{
+  position: fixed;
+  top:0;
+  width: 100%;
+  min-height: 50px;
+  margin-bottom: 20px;
+  background: rgba(0,0,0,.4);
+  z-index:1010;
+  -webkit-filter: blur(20px);
+  -moz-filter: blur(20px);
+  -o-filter: blur(20px);
+  -ms-filter: blur(20px);
+  filter: blur(20px);
+}
+
+.id_data{                             
   color:red;
   border: 1px solid #ccc;
   display: inline-block;
