@@ -11,8 +11,10 @@
         <div class="media-body">
           <h2 style="color:#ea2088;" class="account-heading">{{ user.username }}</h2>
           <p class="fal">
-            {% if request.user.is_superuser %}
-              Adminstrator<br>
+            {% if user.is_superuser %}
+              Captain<br>
+            {% else %}
+              Crew<br>
             {% endif %}
             Created on    : {{ user.profile.created_at }}<br>
             No of Posts   : {{ user.posts.count }}<br>
@@ -22,34 +24,33 @@
     </div>
 </div>
   {% for post in posts %}
+  
     <div class="card content-section mb-2">
       <div class="card-body p-3">
         <div class="row">
-          <div class="col-10">
-            <div class="row mb-3">
-              <div class="col-6">
-                <strong class="fal"><a href="#">{{ post.subject }}</a></strong>
-              </div>
-              <div class="col-6 text-right">
-                <small class="fal">by {{ post.created_by }}</small><br>
-                <small class="fal">{{ post.created_at }}</small><br>
-                <small class="fal">Forum : <a href="{% url 'forum-threads' post.thread.forum.id %}">{{ post.thread.forum.name }}</a></small><br>
-                <small class="fal">Thread : <a href="{% url 'thread-posts' post.thread.id %}">{{ post.thread.name }}</a></small>
-              </div>
-            </div>
-            {{ post.post }}
-            <!--
-            {% if user == user %}
-              <div class="mt-3">
-                <a href="#" class="btn btn-primary btn-sm" role="button">Edit</a>
-              </div>
-            {% endif %}
-            -->
-          </div>
+          <table class="table table-css" >
+            <tr>
+              <td width="65%">
+                <div class="col-6">
+                    <strong class="fal"><a href="#">{{ post.subject }}</a></strong>
+                    <br>
+                    {{ post.post }}
+                </div>
+              </td>
+              <td width="35%">
+                <div class=" text-right">
+                  <small class="fal">by {{ post.created_by }}</small><br>
+                  <small class="fal">{{ post.created_at }}</small><br>
+                  <small class="fal">Forum : <a href="{% url 'forum-threads' post.thread.forum.id %}">{{ post.thread.forum.name }}</a></small><br>
+                  <small class="fal">Thread : <a href="{% url 'thread-posts' post.thread.id %}">{{ post.thread.name }}</a></small>
+                </div>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>
-  {% endfor %}
+    {% endfor %}
 
 </div>
 {% endblock content %}
