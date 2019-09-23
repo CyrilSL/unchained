@@ -39,7 +39,6 @@
               </td>
               <td width="35%">
                 <div class=" text-right">
-                  <small class="fal">by {{ post.created_by }}</small><br>
                   <small class="fal">{{ post.created_at }}</small><br>
                   <small class="fal">Forum : <a href="{% url 'forum-threads' post.thread.forum.id %}">{{ post.thread.forum.name }}</a></small><br>
                   <small class="fal">Thread : <a href="{% url 'thread-posts' post.thread.id %}">{{ post.thread.name }}</a></small>

@@ -76,7 +76,6 @@ ol,li,a:hover{
 
 #particles-js canvas {
   display: block;
-  vertical-align: bottom;
   -webkit-transform: scale(1);
   -ms-transform: scale(1);
   transform: scale(1);
@@ -141,7 +140,7 @@ ul {
 .dropdown-menu{
   background-color:black;
   color:white;
-  box-shadow: 0 2px 7px #ea2088
+  box-shadow: 0 2px 7px #ea2088;
 }
 .dropdown-item{
   color:white;
@@ -149,7 +148,7 @@ ul {
 
 .dropdown-item:hover{
   background-color:black;
-  color:white;
+  color: #ea2088;
 }
 
 .site-header .navbar-nav .nav-link.active {
@@ -215,20 +214,10 @@ a.article-title:hover {
 
 
 
-
-
-
-
-
-
-
-
 /* { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
 
 html { width: 100%; height:100%; overflow:hidden; }
 */
-
-
 
 
 
@@ -381,7 +370,4 @@ html { width: 100%; height:100%; overflow:hidden; }
   background-color: #014c8f;
   color: white;
   box-shadow: 0 2px 7px #ea2088;
-}
-
-
 }

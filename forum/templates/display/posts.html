@@ -16,10 +16,11 @@
 {% endblock %}
 
 {% block content %}
-
-  <div class="mb-4">
-    <a href="{% url 'thread-posts-new' thread.id %}" role="button"> <button  class="ghost-blue">Reply</button></a>
-  </div>
+  {% if thread.forum.forum_type != 'A' or request.user.is_superuser %}
+    <div class="mb-4">
+      <a href="{% url 'thread-posts-new' thread.id %}" role="button"> <button  class="ghost-blue">Reply</button></a>
+    </div>
+  {% endif %}
 
   {% for post in posts %}
     <div class="card content-section mb-2">
@@ -44,11 +45,13 @@
               </div>
             </div>
             {{ post.post }}
-            {% ifchanged thread.link %}  
-              <br><br><center>
-              <a href="{{ thread.link }}" download role="button"><button class="ghost-green">Download</button></a>
-              </center>
-            {% endifchanged %}
+            {% if thread.link %}
+              {% ifchanged thread.link %}  
+                <br><br><center>
+                <a href="{{ thread.link }}" download role="button"><button class="ghost-green">Download</button></a>
+                </center>
+              {% endifchanged %}
+            {% endif %}
             <!--
             {% if post.created_by == user %}
               <div class="mt-3">

@@ -32,7 +32,7 @@ def forum_threads(request, id):                                                 
     else :                                                                                                      #the else block is run when the forum does not have any subforums. It displays the threads asscoiated with the forum. Also used for subforums
         context = {                                                                                             #contains the context data that is send to the html page
             'forum'     : Forum.objects.get(id=id),                                                             #uses the 'id' variable from the args to filter required forum from the list
-            'threads'   : Thread.objects.filter(forum__id__contains=id).order_by("last_updated").reverse()      #uses the 'id' variable from the args to filter required threads from the list
+            'threads'   : Thread.objects.filter(forum__id__contains=id).order_by("created_on").reverse()      #uses the 'id' variable from the args to filter required threads from the list
         }
         return render(request, 'display/threads.html', context)                                                 #request to render the 'threads.html' file and sends the context
 
