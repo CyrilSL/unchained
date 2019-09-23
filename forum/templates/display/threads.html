@@ -25,9 +25,9 @@
   <table class="table table-css">
     <thead class="thead-inverse">
       <tr>
-        <th>Thread Name</th>
-        <th>Posts</th>
-        <th>Last Post</th>
+        <th width="55%">Thread Name</th>
+        <th width="10%">Posts</th>
+        <th width="35%">Last Post</th>
       </tr>
     </thead>
     <tbody>
@@ -36,6 +36,7 @@
           <td>
             <a href="{% url 'thread-posts' thread.id %}">{{ thread.name }}</a>
             <small class="fal d-block">Created by <a href="{% url 'profile' thread.created_user.username %}">{{ thread.created_user.username }}</a></small>
+            <small class="fal d-block">on {{ thread.last_updated }}</a></small>
           </td>
           <td class="align-middle">{{ thread.get_posts_count }}</td>
           <td>{% with post=thread.get_last_post %}

@@ -29,7 +29,7 @@
             <a href="{% url 'profile' post.created_by.username %}"><img class="w-100 rounded" src="{{ post.created_by.profile.profile_pic.url }}" alt="{{ post.created_by.username }}" ></a><br>
             <strong class="text-muted fal"><a href="{% url 'profile' post.created_by.username %}">{{ post.created_by.username }}</a></strong><br>
             <div style="font-size : 85%; padding : 0; margin : 0; line-height : 10px">
-              <small>Status</small><br>
+              <small>{% if post.created_by.is_superuser %}Captain{% else %}Crew{% endif %}</small><br>
               <small>Posts: {{ post.created_by.posts.count }}</small><br>
               <small>Threads : {{ post.created_by.thread.count }}</small>
             </div>
