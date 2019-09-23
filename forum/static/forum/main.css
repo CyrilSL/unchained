@@ -25,7 +25,9 @@ input[type="file"] {                /*File select to upload*/
   color:#ff9df0;
 }
 
-
+p{
+  color:white;   /* For About */
+}
 
 a{
   color:#FF9DF0;
