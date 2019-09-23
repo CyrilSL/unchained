@@ -1,9 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User     #imports the users
-from django.contrib.auth import get_user_model  #used to replace deleted users with 'deleted' tag. Need to test
+from django.contrib.auth import get_user_model  #used to replace deleted users with 'deleted' tag
 from django.utils.text import Truncator
 
-#used to replace deleted users with 'deleted' tag. Need to test
+#used to replace deleted users with 'deleted' tag
 def get_sentinel_user():
     return get_user_model().objects.get_or_create(username='deleted')[0]
 

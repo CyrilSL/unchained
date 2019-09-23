@@ -58,9 +58,10 @@
 
   {% endfor %}
 {% else %}
+  <br>
   <h3>You have not uploaded any files</h3>
   <a href="{% url 'files-upload' %}">
-    <button class="btn btn-primary">Upload now</button>
+    <button class="ghost-blue">Upload now</button>
   </a>
 {% endif %}
 

@@ -16,7 +16,7 @@
     <li class="breadcrumb-item active">{{ forum.name }}</li>      
   </ol> 
   <div class="mb-4">
-    <a href="{% url 'forum-threads-new' forum.id %}" class="ghost-blue">New thread</a>
+    <a href="{% url 'forum-threads-new' forum.id %}"><button  class="ghost-blue">New thread</button></a>
   </div>
 {% endblock %}
 

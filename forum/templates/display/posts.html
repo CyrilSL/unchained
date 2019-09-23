@@ -18,7 +18,7 @@
 {% block content %}
 
   <div class="mb-4">
-    <a href="{% url 'thread-posts-new' thread.id %}" class="ghost-blue" role="button">Reply</a>
+    <a href="{% url 'thread-posts-new' thread.id %}" role="button"> <button  class="ghost-blue">Reply</button></a>
   </div>
 
   {% for post in posts %}
@@ -44,11 +44,11 @@
               </div>
             </div>
             {{ post.post }}
-            {% if thread.link %}              
+            {% ifchanged thread.link %}  
               <br><br><center>
               <a href="{{ thread.link }}" download class="ghost-green" role="button">Download</a>
               </center>
-            {% endif %}
+            {% endifchanged %}
             <!--
             {% if post.created_by == user %}
               <div class="mt-3">

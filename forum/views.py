@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib import messages
 from .models import Forum, Thread, Post
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
@@ -31,7 +32,7 @@ def forum_threads(request, id):                                                 
     else :                                                                                                      #the else block is run when the forum does not have any subforums. It displays the threads asscoiated with the forum. Also used for subforums
         context = {                                                                                             #contains the context data that is send to the html page
             'forum'     : Forum.objects.get(id=id),                                                             #uses the 'id' variable from the args to filter required forum from the list
-            'threads'   : Thread.objects.filter(forum__id__contains=id)                                         #uses the 'id' variable from the args to filter required threads from the list
+            'threads'   : Thread.objects.filter(forum__id__contains=id).order_by("last_updated").reverse()      #uses the 'id' variable from the args to filter required threads from the list
         }
         return render(request, 'display/threads.html', context)                                                 #request to render the 'threads.html' file and sends the context
 
@@ -65,7 +66,8 @@ def new_thread(request, id):                                                    
             return redirect('forum-threads', id=forum.id)                                                       #redirects to 'forum_threads' function with the forum's 'id' as args
         else:
             threadform = NewThreadForm(request.POST)                                                            #stores the thread form in 'threadform' variable. Resets the form
-            postforrm = NewThreadPostForm(request.POST)                                                               #stores the post form in 'postform' variable. Resets the form
+            postforrm = NewThreadPostForm(request.POST)                                                         #stores the post form in 'postform' variable. Resets the form
+            messages.warning(request, f"Please fill all the fields")                                            #shows message when form is invalid
     return render(request, 'new/new_thread.html', {'forum': forum})                                             #request to render the 'new_thread.html' file and sends the 'forum' variable as 'forum'
 
 @login_required                                                                                                 #function is only valid when the user is logged in. Else will redirect to the login page (refer 'settings.py')
@@ -80,5 +82,6 @@ def new_post(request, id):                                                      
             post.save()                                                                                         #saves the form in the database
             return redirect('thread-posts', id=thread.id)                                                       #redirects to 'forum_threads' function with the forum's 'id' as args
         else:
+            messages.warning(request, f"Please fill all the fields")                                            #shows message when form is invalid
             form = NewPostForm()                                                                                #reloads form. Need to Add message integration
     return render(request, 'new/new_post.html', {'thread': thread, 'forum': thread.forum})                      #request to render the 'new_thread.html' file and sends the 'forum' variable as 'forum'

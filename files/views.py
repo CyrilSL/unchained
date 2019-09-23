@@ -16,7 +16,7 @@ def upload(request):
             messages.success(request, f"File has been uploaded successfully")                                   #sends a success message along with redirect to display in the page. Message block is stored in the 'base.html'
             return redirect('files-view')                                                                       #redirects to 'files-view' view
         else:
-            messages.warning(request, f"No file was selected. Please select a file to upload")                  #sends a warning message along with redirect to display in the page. Message block is stored in the 'base.html'
+            messages.warning(request, f"Please fill all the fields given")                                      #sends a warning message along with redirect to display in the page. Message block is stored in the 'base.html'
             form = NewFileForm()                                                                                #reloads form
     return render(request, 'upload.html')                                                                       #request to render the upload.html file and sends the contex
 
