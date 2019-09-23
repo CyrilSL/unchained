@@ -25,6 +25,8 @@ input[type="file"] {                /*File select to upload*/
   color:#ff9df0;
 }
 
+
+
 a{
   color:#FF9DF0;
 }
@@ -34,7 +36,7 @@ ol li a{
 }
 
 ol,li,a:hover{
-  color:red;;
+  color:white ;
 }
 
 

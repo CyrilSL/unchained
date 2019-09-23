@@ -9,8 +9,8 @@
     <div class="media">
         <img class="rounded account-img" src="{{ user.profile.profile_pic.url }}" alt="{{ user.username }}">
         <div class="media-body">
-          <h2 class="account-heading">{{ user.username }}</h2>
-          <p class="text-secondary">
+          <h2 style="color:#ea2088;" class="account-heading">{{ user.username }}</h2>
+          <p class="fal">
             {% if request.user.is_superuser %}
               Adminstrator<br>
             {% endif %}
@@ -28,13 +28,13 @@
           <div class="col-10">
             <div class="row mb-3">
               <div class="col-6">
-                <strong class="text-muted"><a href="#">{{ post.subject }}</a></strong>
+                <strong class="fal"><a href="#">{{ post.subject }}</a></strong>
               </div>
               <div class="col-6 text-right">
-                <small class="text-muted">by {{ post.created_by }}</small><br>
-                <small class="text-muted">{{ post.created_at }}</small><br>
-                <small class="text-muted">Forum : <a href="{% url 'forum-threads' post.thread.forum.id %}">{{ post.thread.forum.name }}</a></small><br>
-                <small class="text-muted">Thread : <a href="{% url 'thread-posts' post.thread.id %}">{{ post.thread.name }}</a></small>
+                <small class="fal">by {{ post.created_by }}</small><br>
+                <small class="fal">{{ post.created_at }}</small><br>
+                <small class="fal">Forum : <a href="{% url 'forum-threads' post.thread.forum.id %}">{{ post.thread.forum.name }}</a></small><br>
+                <small class="fal">Thread : <a href="{% url 'thread-posts' post.thread.id %}">{{ post.thread.name }}</a></small>
               </div>
             </div>
             {{ post.post }}
