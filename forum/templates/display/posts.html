@@ -27,7 +27,7 @@
         <div class="row">
           <div class="col-2">
             <a href="{% url 'profile' post.created_by.username %}"><img class="w-100 rounded" src="{{ post.created_by.profile.profile_pic.url }}" alt="{{ post.created_by.username }}" ></a><br>
-            <strong class="text-muted fal"><a href="{% url 'profile' post.created_by.username %}">{{ post.created_by.username }}</a></strong><br>
+            <strong class="fal"><a href="{% url 'profile' post.created_by.username %}">{{ post.created_by.username }}</a></strong><br>
             <div style="font-size : 85%; padding : 0; margin : 0; line-height : 10px">
               <small>{% if post.created_by.is_superuser %}Captain{% else %}Crew{% endif %}</small><br>
               <small>Posts: {{ post.created_by.posts.count }}</small><br>
@@ -37,7 +37,7 @@
           <div class="col-10">
             <div class="row mb-3">
               <div class="col-6">
-                <strong class="text-muted fal"><a href="#">{{ post.subject }}</a></strong>
+                <strong class="fal"><a href="#">{{ post.subject }}</a></strong>
               </div>
               <div class="col-6 text-right">
                 <small class="fal">{{ post.created_at }}</small>

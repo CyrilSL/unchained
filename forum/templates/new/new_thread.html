@@ -29,8 +29,8 @@
     {% if forum.issubforum %}
       <div class="form-group">
         <label for="id_file">File Link</label>
-        <input type="text" class="form-control" id="id_file" name="link">
-        <small class="text-muted">Haven't uploaded any files. Upload <a href="{% url 'files-upload' %}">here</a></small>
+        <input type="text" class="textinput form-control" id="id_file" name="link">
+        <small class="fal">Haven't uploaded any files. Upload <a href="{% url 'files-upload' %}">here</a></small>
       </div>
     {% endif %}
     <button type="submit" class="ghost-green">Post</button>

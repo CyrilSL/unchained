@@ -6,9 +6,7 @@
 
 {% block content %}
     <h2>You have been logged out!</h2>
-    <div class="border-top pt-3">
-        
-            <a class="ml-2 ghost-pink" href="{% url 'login' %}">Log In Again</a>
-        
+    <div class="border-top pt-3">  
+      <a href="{% url 'login' %}"><button class="ml-2 ghost-pink">Log In Again</button></a>
     </div>
 {% endblock content %}
