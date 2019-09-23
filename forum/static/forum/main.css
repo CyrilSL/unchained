@@ -123,7 +123,7 @@ ul {
 
 .content-section {
   background: transparent;
-  
+  box-shadow: 0 4px 10px #ea2088;
   color:white;
   padding: 10px 20px;
   border: 1px solid #dddddd;
