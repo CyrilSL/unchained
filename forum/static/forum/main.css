@@ -25,19 +25,24 @@ input[type="file"] {                /*File select to upload*/
   color:white;
 }
 
+.breadcrumb-item.active{
+  color:white;
+}
+
 .the-blur{
   position: fixed;
   top:0;
   width: 100%;
-  min-height: 50px;
+  height: 100px;
   margin-bottom: 20px;
-  background: rgba(0,0,0,.4);
+  margin-top: -30px;
+  background: black;
   z-index:1010;
   -webkit-filter: blur(20px);
   -moz-filter: blur(20px);
   -o-filter: blur(20px);
   -ms-filter: blur(20px);
-  filter: blur(20px);
+  filter: blur(10px);
 }
 
 .id_data{                             
