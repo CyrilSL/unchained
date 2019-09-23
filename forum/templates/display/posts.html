@@ -44,7 +44,7 @@
                 <small class="fal">{{ post.created_at }}</small>
               </div>
             </div>
-            {{ post.post }}
+            {{ post.post|linebreaks }}
             {% if thread.link %}
               {% ifchanged thread.link %}  
                 <br><br><center>

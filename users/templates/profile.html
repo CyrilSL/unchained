@@ -30,14 +30,12 @@
         <div class="row">
           <table class="table table-css" >
             <tr>
-              <td width="65%">
-                <div class="col-6">
-                    <strong class="fal"><a href="#">{{ post.subject }}</a></strong>
-                    <br>
-                    {{ post.post }}
-                </div>
+              <td width="75%">
+                <strong class="fal"><a href="#">{{ post.subject }}</a></strong>
+                <br>
+                {{ post.post|linebreaks }}
               </td>
-              <td width="35%">
+              <td width="25%">
                 <div class=" text-right">
                   <small class="fal">{{ post.created_at }}</small><br>
                   <small class="fal">Forum : <a href="{% url 'forum-threads' post.thread.forum.id %}">{{ post.thread.forum.name }}</a></small><br>
