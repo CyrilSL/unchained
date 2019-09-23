@@ -22,7 +22,7 @@ input[type="file"] {                /*File select to upload*/
 
 .breadcrumb{
   background-color: #ea2088;
-  color:white;
+  color:#ff9df0;
 }
 
 a{
@@ -34,7 +34,7 @@ ol li a{
 }
 
 ol,li,a:hover{
-  color:white;
+  color:red;;
 }
 
 
@@ -45,13 +45,6 @@ ol,li,a:hover{
   color:white;
 }
 
-
-
-.breadcrumb > li + li:before {
-  color: #ccc;
-  content: " > ";
-  padding: 0 5px;
-}
 
 .the-blur{
   position: fixed;
@@ -138,7 +131,21 @@ ul {
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: #ffffff;
+  color: #ea2088;
+}
+
+.dropdown-menu{
+  background-color:black;
+  color:white;
+  box-shadow: 0 2px 7px #ea2088
+}
+.dropdown-item{
+  color:white;
+}
+
+.dropdown-item:hover{
+  background-color:black;
+  color:white;
 }
 
 .site-header .navbar-nav .nav-link.active {
