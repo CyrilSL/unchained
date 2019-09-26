@@ -116,7 +116,6 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
-.vscode
 .env
 .venv
 env/
@@ -143,6 +142,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# End of https://www.gitignore.io/api/django
+#IDE
+.vscode
 Data Hosting.code-workspace
 unchained.code-workspace
+
+# End of https://www.gitignore.io/api/django
