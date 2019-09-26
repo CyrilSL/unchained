@@ -66,7 +66,7 @@ def new_thread(request, id):                                                    
             return redirect('forum-threads', id=forum.id)                                                       #redirects to 'forum_threads' function with the forum's 'id' as args
         else:
             threadform = NewThreadForm(request.POST)                                                            #stores the thread form in 'threadform' variable. Resets the form
-            postforrm = NewThreadPostForm(request.POST)                                                         #stores the post form in 'postform' variable. Resets the form
+            postform = NewThreadPostForm(request.POST)                                                         #stores the post form in 'postform' variable. Resets the form
             messages.warning(request, f"Please fill all the fields")                                            #shows message when form is invalid
     return render(request, 'new/new_thread.html', {'forum': forum})                                             #request to render the 'new_thread.html' file and sends the 'forum' variable as 'forum'
 
