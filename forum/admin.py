@@ -10,4 +10,5 @@ admin.site.register(Forum, ForumAdmin)                              #shows the f
 admin.site.register(Thread)                                         #shows the threads that are created in the database
 admin.site.register(Post)                                           #shows the posts that are created in the database
 
-#need to see if parent forums and subforums can be filtered to seperate table views
+#TODO: filter parent forums and subforums to seperate table views
+#TODO: make better admin interface

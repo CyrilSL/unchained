@@ -20,7 +20,9 @@
               <table>
                 <tr>
                   <td>
-                    <a href="{{ file.data.url }}" download class="ghost-green" role="button">Download</a>
+                    <a href="{{ file.data.url }}" download class="ghost-green" role="button">
+                      <button class="ghost-green">Download</button>
+                    </a>
                   </td>
                   <td>
                     <button class="ghost-blue" onclick="copyclip('{{ file.name }}');">Copy to clipboard</button>

@@ -32,7 +32,7 @@ def forum_threads(request, id):                                                 
     else :                                                                                                      #the else block is run when the forum does not have any subforums. It displays the threads asscoiated with the forum. Also used for subforums
         context = {                                                                                             #contains the context data that is send to the html page
             'forum'     : Forum.objects.get(id=id),                                                             #uses the 'id' variable from the args to filter required forum from the list
-            'threads'   : Thread.objects.filter(forum__id__contains=id).order_by("created_on").reverse()      #uses the 'id' variable from the args to filter required threads from the list
+            'threads'   : Thread.objects.filter(forum__id__contains=id).order_by("created_on").reverse()        #uses the 'id' variable from the args to filter required threads from the list, odered by the reverse of the created_on attribute
         }
         return render(request, 'display/threads.html', context)                                                 #request to render the 'threads.html' file and sends the context
 
@@ -48,7 +48,7 @@ def thread_posts(request, id):
 def new_thread(request, id):                                                                                    #function recieves 'id' as arguement when being called
     forum = get_object_or_404(Forum, id=id)                                                                     #stores the current forum in 'forum' variable. Returns 404 if object is missing
     threadform = NewThreadForm(request.POST)                                                                    #stores the thread form in 'threadform' variable
-    postform = NewThreadPostForm(request.POST)                                                                        #stores the post form in 'postform' variable
+    postform = NewThreadPostForm(request.POST)                                                                  #stores the post form in 'postform' variable
     if request.method == 'POST':                                                                                #if block is executed is the POST request is recieved. Used to verify that data is recieved to be stored
         if threadform.is_valid() and postform.is_valid():                                                       #if block is executed only if both forms are valid
             
@@ -66,7 +66,7 @@ def new_thread(request, id):                                                    
             return redirect('forum-threads', id=forum.id)                                                       #redirects to 'forum_threads' function with the forum's 'id' as args
         else:
             threadform = NewThreadForm(request.POST)                                                            #stores the thread form in 'threadform' variable. Resets the form
-            postform = NewThreadPostForm(request.POST)                                                         #stores the post form in 'postform' variable. Resets the form
+            postform = NewThreadPostForm(request.POST)                                                          #stores the post form in 'postform' variable. Resets the form
             messages.warning(request, f"Please fill all the fields")                                            #shows message when form is invalid
     return render(request, 'new/new_thread.html', {'forum': forum})                                             #request to render the 'new_thread.html' file and sends the 'forum' variable as 'forum'
 
