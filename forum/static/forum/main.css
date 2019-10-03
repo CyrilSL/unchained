@@ -41,6 +41,10 @@ ol,li,a:hover{
   color:white ;
 }
 
+.navbar-collapse > .navbar-nav { 
+  background-color: #000000; 
+}
+
 
 .breadcrumb-item{
   color:white;
@@ -136,6 +140,13 @@ ul {
 .site-header .navbar-nav .nav-link:hover {
   color: #ea2088;
 }
+
+.navbar-colapse{
+  background-color:black;
+  color:white;
+  box-shadow: 0 2px 7px #ea2088;
+}
+
 
 .dropdown-menu{
   background-color:black;
